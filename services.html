@@ -1,0 +1,48 @@
+{% extends 'head.html'%}
+{% load static %}
+
+{% block services%} 
+
+<br><br><br>
+  <div class="container">
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+   VOir les Services
+  </button>
+  
+  <!-- Modal -->
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nos differents services</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {% for request in req%}
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+             Titre: <h5 class="card-title">{{request.title_services}}</h5>
+              Numero: <h6 class="card-subtitle mb-2 ">{{request.contact}}</h6>
+              auteur: <p class="card-text">{{request.auteur}}</p>
+              <img src="{{request.photo.url}}" class="img-fluid" alt="Photo" style="height:200px;"> <br>
+              conseil: <p class="card-text">{{request.conseil}}</p>
+             
+            </div>
+          </div>
+        
+          {% endfor %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+{% endblock %}
